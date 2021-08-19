@@ -1,0 +1,52 @@
+import os
+
+data = "data/fastq/{id}.fq"
+ids, = glob_wildcards(data)
+
+configfile: "config.yaml"
+
+rule all:
+    input: 
+        expand("result/{id}_subsample_{subsample}_Aligned.out.sam", id=ids, subsample=config["subsample"])
+
+rule get_index:
+    input:
+        fa="data/ref/genome.chr21.fa",
+        gtf="data/ref/annotation.chr21.gtf"
+    output:
+        directory("data/index")
+    threads: 4
+    shell:
+        "STAR "
+        "--runMode genomeGenerate "
+        "--genomeDir {output} "
+        "--genomeFastaFiles {input.fa} "
+        "--sjdbGTFfile {input.gtf} "
+        "--sjdbOverhang 99 "
+        "--genomeSAindexNbases 11"
+
+rule get_subsample:
+    input:
+        data
+    output:
+        temp("{id}_tmp_{subsample}.fq")
+    params:
+        subsample="{subsample}"
+    threads: 4
+    shell:
+        "head -n {params.subsample} {input} > {output}"
+
+rule mapping:
+    input:
+        fastq="{id}_tmp_{subsample}.fq",
+        index="data/index"
+    output: 
+        "result/{id}_subsample_{subsample}_Aligned.out.sam"
+    params:
+        subsample="{subsample}"
+    threads: 4
+    shell:
+        "STAR "
+        "--genomeDir {input.index} "
+        "--readFilesIn {input.fastq} "
+        "--outFileNamePrefix result/{wildcards.id}_subsample_{params.subsample}_"

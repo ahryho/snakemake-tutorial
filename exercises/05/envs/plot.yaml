@@ -1,0 +1,5 @@
+channels:
+ - r
+dependencies:
+ - r
+ - r-ggplot2

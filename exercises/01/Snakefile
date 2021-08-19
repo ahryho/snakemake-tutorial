@@ -1,0 +1,16 @@
+
+import os
+
+data = "data/{id}.txt"
+ids, = glob_wildcards(data)
+
+rule concatenate:
+    input: expand(data, id = ids)
+    output: "result/conc.txt" 
+    shell:
+        "cat {input} > {output}"
+
+rule all:
+    input: rules.concatenate.output
+
+

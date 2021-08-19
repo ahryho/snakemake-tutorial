@@ -1,0 +1,5 @@
+methylation
+transcriptomic
+genomic
+proteomic
+metabolomic

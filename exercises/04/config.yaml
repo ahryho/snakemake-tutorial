@@ -1,0 +1,5 @@
+sample_dict:
+ chr21.test1: data/index
+ chr21.test2: data/index
+subsample:
+ [12,20]

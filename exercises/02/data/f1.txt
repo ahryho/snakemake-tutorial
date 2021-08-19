@@ -1,0 +1,6 @@
+mandarin
+peach
+apricot
+pineapple
+watermellon
+apple

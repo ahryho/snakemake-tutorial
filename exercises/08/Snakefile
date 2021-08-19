@@ -1,0 +1,13 @@
+# Run with 
+# snakemake -s Snakefile --core 1 
+
+my_vars = ["A", "B", "C"]
+
+rule correct:
+    output: "results/test.txt"
+    log: "log.txt"
+    run:
+        # import pdb; pdb.set_trace()
+        with open(output[0], "w") as outh, open(log[0], "w") as logh:
+            print("Running correct rule...", file=logh)
+            print(my_vars[2], file=outh)

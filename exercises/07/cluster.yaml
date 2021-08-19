@@ -1,0 +1,12 @@
+__default__:
+  partition: "hp"
+  cpus: "{threads}"
+  mem: "2g"
+  output: "logs_slurm/{rule}_{wildcards.id}_{wildcards.subsample}.out"
+  error: "logs_slurm/{rule}_{wildcards.id}_{wildcards.subsample}.err"
+
+get_index:
+  mem: "8g"
+
+mapping:
+  mem: "4g"

@@ -1,0 +1,16 @@
+data = "data/{file}.csv"
+ids, = glob_wildcards(data)
+
+rule all:
+    input: 
+        expand("plots/plot_{file}.pdf", file = ids)
+
+rule plot:
+    input:
+        data
+    output:
+        "plots/plot_{file}.pdf"
+    conda:
+        "envs/plot.yaml"
+    script:
+        "scripts/plot.R"

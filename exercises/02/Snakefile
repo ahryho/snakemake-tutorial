@@ -1,0 +1,11 @@
+data = "data/{id}.txt"
+ids, = glob_wildcards(data)
+
+rule sort:
+    input: "data/{id}.txt"
+    output: "result/{id}_sorted.txt"
+    shell:
+        "sort {input} > {output}"
+
+rule all:
+    input: expand(rules.sort.output, id=ids)

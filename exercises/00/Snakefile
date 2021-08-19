@@ -1,0 +1,8 @@
+rule hellomake:
+    input: ["hellomake.c", "hellofunc.c"]
+    output: "hellomake"
+    shell:
+        "gcc -o {output} {input} -I."
+
+rule all:
+    input: "hellomake"

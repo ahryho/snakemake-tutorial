@@ -1,0 +1,10 @@
+# the files I don't want to push
+~$*
+.snakemake
+*.pptx
+*.pdf
+*index*
+
+# OS generated files 
+.DS_Store
+
