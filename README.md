@@ -1,5 +1,6 @@
 # Snakemake 
 
+An Introduction to Snakemake by _Anastasiia Hyhorzhevska_. This repository serves as a guide for understanding and utilizing the workflow engine Snakemake. Your feedback and contributions are highly encouraged!
 
 - [About Snakemake](#About-Snakemake)
 - [Setup](#setup)
