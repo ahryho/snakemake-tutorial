@@ -18,6 +18,7 @@ An Introduction to Snakemake by _Anastasiia Hyhorzhevska_. This repository serve
 - [Useful command line arguments](#Useful-command-line-arguments)
 - [Useful keywords and functions](#Useful-keywords-and-functions)
 - [Useful resources](#Useful-resources)
+- [Authors](#Authors)
 
 # About Snakemake
 
@@ -793,4 +794,9 @@ removed all locks
 - [Bioconda](https://bioconda.github.io/)
 - [Cluster profiles](https://github.com/Snakemake-Profiles)
 - [Snakemake wrappers](https://snakemake-wrappers.readthedocs.io/)
+
+## Authors
+
+[Anastasiia Hryhorzhevska](https://www.linkedin.com/in/ahryhorzhevska)
+
 
